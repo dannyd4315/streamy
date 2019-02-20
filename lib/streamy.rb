@@ -7,6 +7,7 @@ module Streamy
   require "streamy/version"
   require "streamy/consumer"
   require "streamy/event"
+  require "streamy/avro_event"
   require "streamy/event_handler"
   require "streamy/message_processor"
   require "streamy/profiler"
@@ -20,6 +21,9 @@ module Streamy
   # Message Buses
   require "streamy/message_buses/message_bus"
   require "streamy/message_buses/test_message_bus"
+
+  # require patches for avro to allow for logical types
+  require "avro_patches"
 
   class << self
     attr_accessor :message_bus, :worker, :logger, :cache
